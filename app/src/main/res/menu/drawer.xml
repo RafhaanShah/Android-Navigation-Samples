@@ -35,4 +35,14 @@
             android:icon="@drawable/ic_feedback"
             android:title="@string/title_register" />
     </group>
+
+    <group
+        android:id="@+id/drawer_menu_bottom"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/settings"
+            android:contentDescription="@string/cd_settings"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/title_settings" />
+    </group>
 </menu>

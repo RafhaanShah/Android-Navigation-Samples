@@ -43,7 +43,9 @@
     <string name="title_registered">Registered</string>
     <string name="title_list">Leaderboard</string>
     <string name="title_detail">Profile</string>
+    <string name="title_settings">Settings</string>
     <string name="cd_home">Home</string>
     <string name="cd_list">List</string>
     <string name="cd_form">Form</string>
+    <string name="cd_settings">Settings</string>
 </resources>
