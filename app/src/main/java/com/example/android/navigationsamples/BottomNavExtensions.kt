@@ -30,6 +30,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
  * Manages the various graphs needed for a [BottomNavigationView].
  *
  * This sample is a workaround until the Navigation Component supports multiple back stacks.
+ *
+ * Your navGraphIds must have the same ids as your menuItem ids
  */
 fun BottomNavigationView.setupWithNavController(
     fragmentManager: FragmentManager,

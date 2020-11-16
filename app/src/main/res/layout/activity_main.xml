@@ -14,6 +14,7 @@
   ~ limitations under the License.
   -->
 
+<!-- app:defaultNavHost="true" is needed to handle back button properly -->
 <androidx.fragment.app.FragmentContainerView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_nav_container"

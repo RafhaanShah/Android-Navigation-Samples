@@ -40,6 +40,7 @@ class DrawerFragment : Fragment() {
         val drawerLayout = view.findViewById<DrawerLayout>(R.id.drawer_layout)
         val toolbar = view.findViewById<Toolbar>(R.id.drawer_toolbar)
         val navView = view.findViewById<NavigationView>(R.id.drawer_nav_view)
+        // Your navGraphIds must have the same ids as your menuItem ids
         val navGraphIds = listOf(R.navigation.home, R.navigation.list, R.navigation.form)
 
         val controller = navView.setupWithNavController(

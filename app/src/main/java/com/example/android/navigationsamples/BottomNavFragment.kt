@@ -39,21 +39,15 @@ class BottomNavFragment : Fragment() {
     private fun setupBottomNavBar(view: View) {
         val bottomNavView = view.findViewById<BottomNavigationView>(R.id.bottom_nav_view)
         val toolbar = view.findViewById<Toolbar>(R.id.bottom_nav_toolbar)
-        toolbar.setOnMenuItemClickListener { menuItem ->
-            when (menuItem.itemId) {
-                R.id.settings -> {
-                    findNavController().navigate(R.id.settings)
-                    true
-                }
-                else -> false
-            }
-        }
+        // Your navGraphIds must have the same ids as your menuItem ids
+        val navGraphIds = listOf(R.navigation.home, R.navigation.list, R.navigation.form)
 
+        addToolbarListener(toolbar)
         bottomNavView.selectedItemId = bottomNavSelectedItemId
 
         val controller = bottomNavView.setupWithNavController(
             fragmentManager = childFragmentManager,
-            navGraphIds = listOf(R.navigation.home, R.navigation.list, R.navigation.form),
+            navGraphIds = navGraphIds,
             containerId = R.id.bottom_nav_container,
             firstItemId = R.id.home,
             intent = requireActivity().intent
@@ -63,6 +57,18 @@ class BottomNavFragment : Fragment() {
             NavigationUI.setupWithNavController(toolbar, navController)
             bottomNavSelectedItemId = navController.graph.id
         })
+    }
+
+    private fun addToolbarListener(toolbar: Toolbar) {
+        toolbar.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.settings -> {
+                    findNavController().navigate(R.id.settings)
+                    true
+                }
+                else -> false
+            }
+        }
     }
 
 }

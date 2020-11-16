@@ -21,6 +21,8 @@
             android:background="@color/colorPrimary"
             app:titleTextColor="@android:color/white" />
 
+        <!-- Do not add: app:navGraph="@navigation/graph"
+    or: android:name="androidx.navigation.fragment.NavHostFragment" -->
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/drawer_container"
             android:layout_width="match_parent"

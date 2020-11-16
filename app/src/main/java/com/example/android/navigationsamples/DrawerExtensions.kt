@@ -23,6 +23,8 @@ import com.google.android.material.navigation.NavigationView
  * Manages the various graphs needed for a [NavigationView].
  *
  * This sample is a workaround until the Navigation Component supports multiple back stacks.
+ *
+ * Your navGraphIds must have the same ids as your menuItem ids
  */
 fun NavigationView.setupWithNavController(
     fragmentManager: FragmentManager,

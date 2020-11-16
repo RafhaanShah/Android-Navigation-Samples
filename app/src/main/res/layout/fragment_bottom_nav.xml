@@ -16,6 +16,9 @@
         app:menu="@menu/bottom_nav_toolbar"
         app:titleTextColor="@android:color/white" />
 
+
+    <!-- Do not add: app:navGraph="@navigation/graph"
+    or: android:name="androidx.navigation.fragment.NavHostFragment" -->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/bottom_nav_container"
         android:layout_width="match_parent"
