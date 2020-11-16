@@ -3,16 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    app:startDestination="@id/drawer_fragment">
+    app:startDestination="@id/welcome">
 
     <fragment
-        android:id="@+id/bottom_nav_fragment"
+        android:id="@+id/bottom_nav"
         android:name="com.example.android.navigationsamples.BottomNavFragment"
         android:label="Bottom Nav"
         tools:layout="@layout/fragment_bottom_nav" />
 
     <fragment
-        android:id="@+id/drawer_fragment"
+        android:id="@+id/drawer"
         android:name="com.example.android.navigationsamples.DrawerFragment"
         android:label="DrawerFragment"
         tools:layout="@layout/fragment_drawer" />
@@ -22,5 +22,11 @@
         android:name="com.example.android.navigationsamples.SettingsFragment"
         android:label="Settings"
         tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/welcome"
+        android:name="com.example.android.navigationsamples.WelcomeFragment"
+        android:label="Welcome"
+        tools:layout="@layout/fragment_welcome" />
 
 </navigation>

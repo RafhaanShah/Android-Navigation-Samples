@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -38,6 +39,15 @@ class BottomNavFragment : Fragment() {
     private fun setupBottomNavBar(view: View) {
         val bottomNavView = view.findViewById<BottomNavigationView>(R.id.bottom_nav_view)
         val toolbar = view.findViewById<Toolbar>(R.id.bottom_nav_toolbar)
+        toolbar.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.settings -> {
+                    findNavController().navigate(R.id.settings)
+                    true
+                }
+                else -> false
+            }
+        }
 
         bottomNavView.selectedItemId = bottomNavSelectedItemId
 
