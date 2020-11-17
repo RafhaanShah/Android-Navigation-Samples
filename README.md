@@ -5,10 +5,18 @@
 - This has been slightly modified, and the same principles have been applied to get similar functionality when using a [Navigation Drawer](https://developer.android.com/guide/navigation/navigation-ui) as well.
 Lastly, a sample using a [View Pager](https://developer.android.com/guide/navigation/navigation-swipe-view-2) is also included which is similar to the other two.
 
+<table>
+  <tr>
+    <td><img src='assets/demo_bottom_nav.gif'></td>
+    <td><img src='assets/demo_drawer.gif'></td>
+    <td><img src='assets/demo_paging.gif'></td>
+  </tr>
+</table>
+
 ## TL;DR Quickstart
-- For Bottom Navigation: copy [BottomNavExtensions](https://github.com/RafhaanShah/Android-Navigation-Samples/blob/master/app/src/main/java/com/example/android/navigationsamples/BottomNavExtensions.kt) into your project and set up your host Fragment based on this [BottomNavFragment](https://github.com/RafhaanShah/Android-Navigation-Samples/blob/master/app/src/main/java/com/example/android/navigationsamples/BottomNavFragment.kt) with this [layout](https://github.com/RafhaanShah/Android-Navigation-Samples/blob/master/app/src/main/res/layout/fragment_bottom_nav.xml)
-- For a Navigation Drawer: copy [DrawerExtensions](https://github.com/RafhaanShah/Android-Navigation-Samples/blob/master/app/src/main/java/com/example/android/navigationsamples/DrawerExtensions.kt) into your project and set up your host Fragment based on this [DrawerFragment](https://github.com/RafhaanShah/Android-Navigation-Samples/blob/master/app/src/main/java/com/example/android/navigationsamples/DrawerFragment.kt) with this [layout](https://github.com/RafhaanShah/Android-Navigation-Samples/blob/master/app/src/main/res/layout/fragment_drawer.xml)
-- For a View Pager: follow this [ViewPagerFragment](https://github.com/RafhaanShah/Android-Navigation-Samples/blob/master/app/src/main/java/com/example/android/navigationsamples/ViewPagerFragment.kt) and this [layout](https://github.com/RafhaanShah/Android-Navigation-Samples/blob/master/app/src/main/res/layout/fragment_view_pager.xml)
+- For Bottom Navigation: copy [BottomNavExtensions](app/src/main/java/com/example/android/navigationsamples/BottomNavExtensions.kt) into your project and set up your host Fragment based on this [BottomNavFragment](app/src/main/java/com/example/android/navigationsamples/BottomNavFragment.kt) with this [layout](app/src/main/res/layout/fragment_bottom_nav.xml)
+- For a Navigation Drawer: copy [DrawerExtensions](app/src/main/java/com/example/android/navigationsamples/DrawerExtensions.kt) into your project and set up your host Fragment based on this [DrawerFragment](app/src/main/java/com/example/android/navigationsamples/DrawerFragment.kt) with this [layout](app/src/main/res/layout/fragment_drawer.xml)
+- For a View Pager: follow this [ViewPagerFragment](app/src/main/java/com/example/android/navigationsamples/ViewPagerFragment.kt) and this [layout](app/src/main/res/layout/fragment_view_pager.xml)
 
 ## Changes
 This sample differs from the original sample in a few ways:
@@ -102,7 +110,7 @@ tabA_nav_graph.xml
 ```
 
 ### Bottom Navigation Fragment
-Your BottomNavigationView should be setup after the view has been created, the currently selected `menuItem` ID should also be saved in a variable so the correct destination is show on rotation and when you navigate away from the host and return, see [BottomNavFragment](https://github.com/RafhaanShah/Android-Navigation-Samples/blob/master/app/src/main/java/com/example/android/navigationsamples/BottomNavFragment.kt) for the full implementation.
+Your BottomNavigationView should be setup after the view has been created, the currently selected `menuItem` ID should also be saved in a variable so the correct destination is show on rotation and when you navigate away from the host and return, see [BottomNavFragment](app/src/main/java/com/example/android/navigationsamples/BottomNavFragment.kt) for the full implementation.
 ```
 private var bottomNavSelectedItemId = R.id.home // Must be your starting destination
 private fun setupBottomNavBar(view: View) {  
@@ -130,7 +138,7 @@ private fun setupBottomNavBar(view: View) {
 ```
 
 ### Drawer Fragment
-The NavigationView should also be setup after your view has been created and the currently selected `menuItem` ID should also be saved in a variable, see [DrawerFragment](https://github.com/RafhaanShah/Android-Navigation-Samples/blob/master/app/src/main/java/com/example/android/navigationsamples/DrawerFragment.kt). There is an extra parameter in the setup here for the `parentNavController`. This is needed if you have any destinations you wish to navigate to that are on the top level navigation graph, which would navigate away from this Drawer Fragment.
+The NavigationView should also be setup after your view has been created and the currently selected `menuItem` ID should also be saved in a variable, see [DrawerFragment](app/src/main/java/com/example/android/navigationsamples/DrawerFragment.kt). There is an extra parameter in the setup here for the `parentNavController`. This is needed if you have any destinations you wish to navigate to that are on the top level navigation graph, which would navigate away from this Drawer Fragment.
 ```
 private var drawerSelectedItemId = R.id.home // Must be your starting destination,  
 // same as the 'checked' one in your menu
@@ -156,7 +164,7 @@ private fun setupDrawer(view: View) {
 }
 ```
 ### View Pager
-The adapter does the work in creating the Fragments for the ViewPager, we also need to `setPrimaryNavigationFragment` on the `FragmentManager` when the current tab changes, please see this [StackOverflow Post](https://stackoverflow.com/a/62629996) for more information. Also note that Deep Links do not work with the View Pager in this example. See [ViewPagerFragment](https://github.com/RafhaanShah/Android-Navigation-Samples/blob/master/app/src/main/java/com/example/android/navigationsamples/ViewPagerFragment.kt).
+The adapter does the work in creating the Fragments for the ViewPager, we also need to `setPrimaryNavigationFragment` on the `FragmentManager` when the current tab changes, please see this [StackOverflow Post](https://stackoverflow.com/a/62629996) for more information. Also note that Deep Links do not work with the View Pager in this example. See [ViewPagerFragment](app/src/main/java/com/example/android/navigationsamples/ViewPagerFragment.kt).
 ```
 private fun setupViewPager(view: View) {  
     val labels = listOf("Home", "Leaderboard", "Register")  
