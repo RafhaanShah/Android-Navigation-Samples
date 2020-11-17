@@ -47,7 +47,7 @@
         android:layout_width="200dp"
         android:layout_height="60dp"
         android:layout_marginTop="80dp"
-        android:text="View Pager"
+        android:text="Paging Navigation"
         android:theme="@style/Theme.MaterialComponents.Light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

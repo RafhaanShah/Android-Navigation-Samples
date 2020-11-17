@@ -36,6 +36,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 fun BottomNavigationView.setupWithNavController(
     fragmentManager: FragmentManager,
     navGraphIds: List<Int>,
+    backButtonBehaviour: BackButtonBehaviour,
     containerId: Int,
     firstItemId: Int,
     intent: Intent
@@ -109,7 +110,11 @@ fun BottomNavigationView.setupWithNavController(
                         .attach(selectedFragment)
                         .setPrimaryNavigationFragment(selectedFragment)
                         .detach(fragmentManager.findFragmentByTag(firstFragmentTag)!!)
-                        .addToBackStack(firstFragmentTag)
+                        .apply {
+                            if (backButtonBehaviour == BackButtonBehaviour.SHOW_STARTING_FRAGMENT) {
+                                addToBackStack(firstFragmentTag)
+                            }
+                        }
                         .setReorderingAllowed(true)
                         .commit()
                 }
@@ -240,3 +245,8 @@ private fun FragmentManager.isOnBackStack(backStackName: String): Boolean {
 }
 
 private fun getFragmentTag(index: Int) = "bottomNavigation#$index"
+
+enum class BackButtonBehaviour {
+    SHOW_STARTING_FRAGMENT,
+    POP_HOST_FRAGMENT
+}

@@ -8,6 +8,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
+import com.example.android.navigationsamples.BackButtonBehaviour.POP_HOST_FRAGMENT
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class BottomNavFragment : Fragment() {
@@ -48,6 +49,7 @@ class BottomNavFragment : Fragment() {
         val controller = bottomNavView.setupWithNavController(
             fragmentManager = childFragmentManager,
             navGraphIds = navGraphIds,
+            backButtonBehaviour = POP_HOST_FRAGMENT,
             containerId = R.id.bottom_nav_container,
             firstItemId = R.id.home,
             intent = requireActivity().intent
