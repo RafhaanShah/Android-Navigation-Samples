@@ -1,57 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".WelcomeFragment">
 
-    <com.google.android.material.textview.MaterialTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:gravity="center"
-        android:text="Navigation Component Samples"
-        android:textSize="32sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="HardcodedText" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/welcome_button_bottom_nav"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="250dp"
-        android:text="Bottom Navigation"
-        android:theme="@style/Theme.MaterialComponents.Light"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="HardcodedText" />
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:gravity="center"
+            android:text="Navigation Component Samples"
+            android:textSize="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/welcome_button_drawer"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="80dp"
-        android:text="Drawer Navigation"
-        android:theme="@style/Theme.MaterialComponents.Light"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcome_button_bottom_nav"
-        tools:ignore="HardcodedText" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/welcome_button_bottom_nav"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="250dp"
+            android:text="Bottom Navigation"
+            android:theme="@style/Theme.MaterialComponents.Light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/welcome_button_pager"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="80dp"
-        android:text="Paging Navigation"
-        android:theme="@style/Theme.MaterialComponents.Light"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcome_button_drawer"
-        tools:ignore="HardcodedText" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/welcome_button_drawer"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="80dp"
+            android:text="Drawer Navigation"
+            android:theme="@style/Theme.MaterialComponents.Light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/welcome_button_bottom_nav"
+            tools:ignore="HardcodedText" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/welcome_button_pager"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="80dp"
+            android:text="Paging Navigation"
+            android:theme="@style/Theme.MaterialComponents.Light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/welcome_button_drawer"
+            tools:ignore="HardcodedText" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

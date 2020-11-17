@@ -62,7 +62,7 @@ class DrawerFragment : Fragment() {
             navGraphIds = navGraphIds,
             fragmentManager = childFragmentManager,
             containerId = R.id.drawer_container,
-            currentItemId = drawerSelectedItemId,
+            currentItemId = drawerSelectedItemId, // Needed to maintain correct state over rotations
             parentNavController = findNavController(), // Optional: only if you need to
             // navigate to external destinations
             intent = requireActivity().intent

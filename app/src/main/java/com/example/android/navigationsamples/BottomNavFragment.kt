@@ -45,7 +45,7 @@ class BottomNavFragment : Fragment() {
         val navGraphIds = listOf(R.navigation.home, R.navigation.list, R.navigation.form)
 
         addToolbarListener(toolbar)
-        bottomNavView.selectedItemId = bottomNavSelectedItemId
+        bottomNavView.selectedItemId = bottomNavSelectedItemId // Needed to maintain correct state on return
 
         val controller = bottomNavView.setupWithNavController(
             fragmentManager = childFragmentManager,
@@ -58,7 +58,7 @@ class BottomNavFragment : Fragment() {
 
         controller.observe(viewLifecycleOwner, { navController ->
             NavigationUI.setupWithNavController(toolbar, navController)
-            bottomNavSelectedItemId = navController.graph.id
+            bottomNavSelectedItemId = navController.graph.id // Needed to maintain correct state on return
         })
     }
 
