@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Your nav graph id must match your menu item id -->
+<?xml version="1.0" encoding="utf-8"?><!-- This is the main 'parent' navigation graph,
+all your sub graphs need their own files-->
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,13 +10,29 @@
         android:id="@+id/bottom_nav"
         android:name="com.example.android.navigationsamples.BottomNavFragment"
         android:label="Bottom Nav"
-        tools:layout="@layout/fragment_bottom_nav" />
+        tools:layout="@layout/fragment_bottom_nav">
+        <!-- Deep link to be handled inside sub-graph must be
+        added in the parent graph as well -->
+        <deepLink
+            android:id="@+id/deepLink"
+            android:autoVerify="true"
+            app:uri="www.example.com/user/{userName}" />
+        <argument
+            android:name="userName"
+            app:argType="string" />
+    </fragment>
 
     <fragment
         android:id="@+id/drawer"
         android:name="com.example.android.navigationsamples.DrawerFragment"
         android:label="DrawerFragment"
         tools:layout="@layout/fragment_drawer" />
+
+    <fragment
+        android:id="@+id/view_pager"
+        android:name="com.example.android.navigationsamples.ViewPagerFragment"
+        android:label="View Pager"
+        tools:layout="@layout/fragment_view_pager" />
 
     <fragment
         android:id="@+id/settings"
@@ -29,10 +45,5 @@
         android:name="com.example.android.navigationsamples.WelcomeFragment"
         android:label="Welcome"
         tools:layout="@layout/fragment_welcome" />
-    <fragment
-        android:id="@+id/view_pager"
-        android:name="com.example.android.navigationsamples.ViewPagerFragment"
-        android:label="View Pager"
-        tools:layout="@layout/fragment_view_pager" />
 
 </navigation>

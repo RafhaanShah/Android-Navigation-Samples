@@ -87,6 +87,7 @@ fun NavigationView.setupWithNavController(
                 fragmentManager.findFragmentByTag(newlySelectedItemTag) as NavHostFragment
 
             // Optional: When the already selected item is re-selected
+            // You can also add a call to hideDrawer() if desired
             if (checkedItem!!.itemId == newItemId) {
                 return@setNavigationItemSelectedListener popToStart(selectedFragment)
             }

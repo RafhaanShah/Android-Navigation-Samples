@@ -47,13 +47,13 @@ class ViewPagerFragment : Fragment() {
         val labels = listOf("Home", "Leaderboard", "Register")
         val navGraphIds = listOf(R.navigation.home, R.navigation.list, R.navigation.form)
 
-        val demoCollectionAdapter = NavHostFragmentAdapter(
+        val navHostFragmentAdapter = NavHostFragmentAdapter(
             fragmentManager = childFragmentManager,
             lifecycle = viewLifecycleOwner.lifecycle,
             navGraphIds = navGraphIds
         )
         viewPager = view.findViewById(R.id.view_pager)
-        viewPager.adapter = demoCollectionAdapter
+        viewPager.adapter = navHostFragmentAdapter
 
         val tabLayout = view.findViewById<TabLayout>(R.id.view_pager_tab_layout)
         tabLayoutMediator = TabLayoutMediator(tabLayout, viewPager) { tab, position ->
