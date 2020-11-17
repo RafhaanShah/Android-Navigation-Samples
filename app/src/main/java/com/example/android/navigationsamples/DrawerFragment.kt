@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
@@ -13,6 +14,7 @@ import com.google.android.material.navigation.NavigationView
 
 class DrawerFragment : Fragment() {
 
+    private lateinit var drawerLayout: DrawerLayout
     private val drawerSelectedItemIdKey = "DRAWER_SELECTED_ITEM_ID_KEY"
     private var drawerSelectedItemId = R.id.home // Must be your starting destination,
     // same as the 'checked' one in your menu
@@ -30,6 +32,17 @@ class DrawerFragment : Fragment() {
             drawerSelectedItemId = it.getInt(drawerSelectedItemIdKey, drawerSelectedItemId)
         }
         setupDrawer(view)
+        setBackPressedHandler()
+    }
+
+    private fun setBackPressedHandler() {
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            if (drawerLayout.isOpen) {
+                drawerLayout.close()
+            } else {
+                findNavController().popBackStack()
+            }
+        }
     }
 
     // Needed to maintain correct state over rotations
@@ -39,7 +52,7 @@ class DrawerFragment : Fragment() {
     }
 
     private fun setupDrawer(view: View) {
-        val drawerLayout = view.findViewById<DrawerLayout>(R.id.drawer_layout)
+        drawerLayout = view.findViewById<DrawerLayout>(R.id.drawer_layout)
         val toolbar = view.findViewById<Toolbar>(R.id.drawer_toolbar)
         val navView = view.findViewById<NavigationView>(R.id.drawer_nav_view)
         // Your navGraphIds must have the same ids as your menuItem ids
