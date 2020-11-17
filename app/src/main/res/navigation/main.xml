@@ -29,5 +29,10 @@
         android:name="com.example.android.navigationsamples.WelcomeFragment"
         android:label="Welcome"
         tools:layout="@layout/fragment_welcome" />
+    <fragment
+        android:id="@+id/view_pager"
+        android:name="com.example.android.navigationsamples.ViewPagerFragment"
+        android:label="View Pager"
+        tools:layout="@layout/fragment_view_pager" />
 
 </navigation>

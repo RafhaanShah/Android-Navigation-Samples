@@ -30,6 +30,11 @@ class WelcomeFragment : Fragment() {
         drawerButton.setOnClickListener {
             navController.navigate(R.id.drawer)
         }
+
+        val viewPagerButton = view.findViewById<Button>(R.id.welcome_button_pager)
+        viewPagerButton.setOnClickListener {
+            navController.navigate(R.id.view_pager)
+        }
     }
 
 }

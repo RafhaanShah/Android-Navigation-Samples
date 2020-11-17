@@ -2,33 +2,34 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/bottom_nav_layout"
+    android:id="@+id/view_pager_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.android.navigationsamples.BottomNavFragment">
+    tools:context="com.example.android.navigationsamples.ViewPagerFragment">
 
     <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/bottom_nav_toolbar"
+        android:id="@+id/view_pager_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
         app:menu="@menu/toolbar"
+        app:title="View Pager"
         app:titleTextColor="@android:color/white" />
 
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/view_pager_tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:tabIndicatorColor="@android:color/white"
+        app:tabSelectedTextColor="@android:color/white"
+        app:tabTextColor="@android:color/darker_gray" />
 
-    <!-- Do not add: app:navGraph="@navigation/graph"
-    or: android:name="androidx.navigation.fragment.NavHostFragment" -->
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/bottom_nav_container"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_nav_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        app:menu="@menu/bottom_nav" />
 </LinearLayout>
