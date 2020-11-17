@@ -70,31 +70,36 @@ fun NavigationView.setupWithNavController(
 
     // When a navigation item is selected
     setNavigationItemSelectedListener { item: MenuItem ->
-        val newItemId = item.itemId
-        if (!graphIdToTagMap.containsKey(newItemId)) {
-            // If the selected item is meant to be a destination separate to the supplied graphs,
-            // navigate to it from the parent navController
-            parentNavController.navigate(newItemId)
-            return@setNavigationItemSelectedListener true
+        // Don't do anything if the state is state has already been saved.
+        if (fragmentManager.isStateSaved) {
+            false
+        } else {
+            val newItemId = item.itemId
+            if (!graphIdToTagMap.containsKey(newItemId)) {
+                // If the selected item is meant to be a destination separate
+                // to the supplied graphs, navigate to it from the parent navController
+                parentNavController.navigate(newItemId)
+                return@setNavigationItemSelectedListener true
+            }
+
+            val newlySelectedItemTag = graphIdToTagMap[newItemId]
+            val selectedFragment =
+                fragmentManager.findFragmentByTag(newlySelectedItemTag) as NavHostFragment
+
+            // Optional: When the already selected item is re-selected
+            if (checkedItem!!.itemId == newItemId) {
+                return@setNavigationItemSelectedListener popToStart(selectedFragment)
+            }
+
+            showSelectedFragment(
+                fragmentManager,
+                selectedNavController,
+                selectedFragment,
+                graphIdToTagMap
+            )
+            hideDrawer()
+            true
         }
-
-        val newlySelectedItemTag = graphIdToTagMap[newItemId]
-        val selectedFragment =
-            fragmentManager.findFragmentByTag(newlySelectedItemTag) as NavHostFragment
-
-        // Optional: When the already selected item is re-selected
-        if (checkedItem!!.itemId == newItemId) {
-            return@setNavigationItemSelectedListener popToStart(selectedFragment)
-        }
-
-        showSelectedFragment(
-            fragmentManager,
-            selectedNavController,
-            selectedFragment,
-            graphIdToTagMap
-        )
-        hideDrawer()
-        true
     }
 
     // Optional: handle deep links
