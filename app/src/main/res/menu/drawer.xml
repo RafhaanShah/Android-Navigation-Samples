@@ -15,12 +15,12 @@
   -->
 
 <!-- Your menu ids must match your nav graph ids -->
-<!-- checkableBehavior must be single for
-     top level destinations -->
+<!-- checkableBehavior must be single for top level destinations -->
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group
         android:id="@+id/drawer_menu_top"
         android:checkableBehavior="single">
+        <!-- Set the starting destination to checked -->
         <item
             android:id="@+id/home"
             android:checked="true"

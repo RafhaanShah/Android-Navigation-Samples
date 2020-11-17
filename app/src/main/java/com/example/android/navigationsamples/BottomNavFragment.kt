@@ -14,18 +14,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class BottomNavFragment : Fragment() {
 
     private val bottomNavSelectedItemIdKey = "BOTTOM_NAV_SELECTED_ITEM_ID_KEY"
-    private var bottomNavSelectedItemId = R.id.home
+    private var bottomNavSelectedItemId = R.id.home // Must be your starting destination
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_bottom_nav, container, false)
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        outState.putInt(bottomNavSelectedItemIdKey, bottomNavSelectedItemId)
-        super.onSaveInstanceState(outState)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -35,6 +30,12 @@ class BottomNavFragment : Fragment() {
                 savedInstanceState.getInt(bottomNavSelectedItemIdKey, bottomNavSelectedItemId)
         }
         setupBottomNavBar(view)
+    }
+
+    // Needed to maintain correct state over rotations
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putInt(bottomNavSelectedItemIdKey, bottomNavSelectedItemId)
+        super.onSaveInstanceState(outState)
     }
 
     private fun setupBottomNavBar(view: View) {
@@ -51,7 +52,7 @@ class BottomNavFragment : Fragment() {
             navGraphIds = navGraphIds,
             backButtonBehaviour = POP_HOST_FRAGMENT,
             containerId = R.id.bottom_nav_container,
-            firstItemId = R.id.home,
+            firstItemId = R.id.home, // Must be the same as bottomNavSelectedItemId
             intent = requireActivity().intent
         )
 

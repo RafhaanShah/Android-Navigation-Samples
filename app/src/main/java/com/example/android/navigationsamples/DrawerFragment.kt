@@ -14,7 +14,8 @@ import com.google.android.material.navigation.NavigationView
 class DrawerFragment : Fragment() {
 
     private val drawerSelectedItemIdKey = "DRAWER_SELECTED_ITEM_ID_KEY"
-    private var drawerSelectedItemId = R.id.home
+    private var drawerSelectedItemId = R.id.home // Must be your starting destination,
+    // same as the 'checked' one in your menu
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,6 +32,7 @@ class DrawerFragment : Fragment() {
         setupDrawer(view)
     }
 
+    // Needed to maintain correct state over rotations
     override fun onSaveInstanceState(outState: Bundle) {
         outState.putInt(drawerSelectedItemIdKey, drawerSelectedItemId)
         super.onSaveInstanceState(outState)
@@ -48,7 +50,8 @@ class DrawerFragment : Fragment() {
             fragmentManager = childFragmentManager,
             containerId = R.id.drawer_container,
             currentItemId = drawerSelectedItemId,
-            parentNavController = findNavController(),
+            parentNavController = findNavController(), // Optional: only if you need to
+            // navigate to external destinations
             intent = requireActivity().intent
         )
 

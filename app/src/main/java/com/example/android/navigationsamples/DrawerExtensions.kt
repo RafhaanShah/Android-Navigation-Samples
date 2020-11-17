@@ -76,7 +76,7 @@ fun NavigationView.setupWithNavController(
         } else {
             val newItemId = item.itemId
             if (!graphIdToTagMap.containsKey(newItemId)) {
-                // If the selected item is meant to be a destination separate
+                // Optional: if the selected item is meant to be a destination separate
                 // to the supplied graphs, navigate to it from the parent navController
                 parentNavController.navigate(newItemId)
                 return@setNavigationItemSelectedListener true
