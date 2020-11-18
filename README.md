@@ -28,6 +28,15 @@ Additionally, it also adds the following:
 - Extensions for the [NavigationView](https://developer.android.com/reference/com/google/android/material/navigation/NavigationView) that works with the Drawer Layout. This is based on the original examples [NavigationExtensions](https://github.com/android/architecture-components-samples/blob/master/NavigationAdvancedSample/app/src/main/java/com/example/android/navigationadvancedsample/NavigationExtensions.kt). This allows Fragment state and each graph's back-stack state to be maintained when changing between destinations.
 - Example Fragments showing the usage of the Drawer Layout and View Pager.
 
+## Limitations
+- Some apps like YouTube and Instagram maintain a stack of every visited bottom navigation tab and will go back in order when the back button is pressed, this example does not have a way to do that at the moment. (Do note that there is no one recommended way of handling the back button and everyone seems to have their own idea of what is best, Instagram goes back in order, Twitter goes to the 'Home' tab before exiting the app, Google Photos does not go back to any tab and exits straight away etc)
+- Deep Links do not work with the View Pager in this example.
+
+## Alternatives
+These two examples both use the Navigation Component and combine a ViewPager and BottomNavigationView to achieve the Instagram / YouTube style stack:
+- [Instagram style navigation using Navigation Component](https://android.jlelse.eu/instagram-style-navigation-using-navigation-component-854037cf1389)
+- [Android Navigation Component : Similar Back Stack Like Instagram, Youtube and More…](https://proandroiddev.com/android-navigation-component-similar-back-stack-like-instagram-youtube-and-more-cf299a617492)
+
 ## Usage Details
 ### Activity
 Is only a container for the Fragments and has no other views so that your Fragment's are not tied to the Activity implementation in any way and you don't need to interact with it to change any views or anything else
@@ -164,7 +173,7 @@ private fun setupDrawer(view: View) {
 }
 ```
 ### View Pager
-The adapter does the work in creating the Fragments for the ViewPager, we also need to `setPrimaryNavigationFragment` on the `FragmentManager` when the current tab changes, please see this [StackOverflow Post](https://stackoverflow.com/a/62629996) for more information. Also note that Deep Links do not work with the View Pager in this example. See [ViewPagerFragment](app/src/main/java/com/example/android/navigationsamples/ViewPagerFragment.kt).
+The adapter does the work in creating the Fragments for the ViewPager, we also need to `setPrimaryNavigationFragment` on the `FragmentManager` when the current tab changes, please see this [StackOverflow Post](https://stackoverflow.com/a/62629996) for more information. See [ViewPagerFragment](app/src/main/java/com/example/android/navigationsamples/ViewPagerFragment.kt).
 ```
 private fun setupViewPager(view: View) {  
     val labels = listOf("Home", "Leaderboard", "Register")  
