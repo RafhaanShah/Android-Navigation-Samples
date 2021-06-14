@@ -1,5 +1,7 @@
 # Android Navigation Samples
 
+As of June 2021 and the release of [Navigation 2.4.0-alpha01](https://developer.android.com/jetpack/androidx/releases/navigation#2.4.0-alpha01) and [Fragment 1.4.0-alpha01](https://developer.android.com/jetpack/androidx/releases/fragment#1.4.0-alpha01), multiple backstacks are properly supported, and these workarounds are probably not needed. See this [article](https://medium.com/androiddevelopers/multiple-back-stacks-b714d974f134) for more information.
+
 - This is a sample app showing the usage of the Android [Navigation Component](https://developer.android.com/guide/navigation/navigation-getting-started) in a Single-Activity-App, with nested Navigation Graphs with multiple back-stacks. 
 - This sample is based on the [NavigationAdvancedSample](https://github.com/googlesamples/android-architecture-components/tree/master/NavigationAdvancedSample) by Google which was initially created as a workaround to handle multiple back stacks with Navigation and a [BottomNavigationView](https://developer.android.com/reference/com/google/android/material/bottomnavigation/BottomNavigationView).
 - This has been slightly modified, and the same principles have been applied to get similar functionality when using a [Navigation Drawer](https://developer.android.com/guide/navigation/navigation-ui) as well.
